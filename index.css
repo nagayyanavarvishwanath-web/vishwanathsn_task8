@@ -2,16 +2,23 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    --backg-color:rgb(96, 98, 155);
+    --lightgreen-color:rgb(163, 216, 152);
+    --black-color:rgb(0, 0, 0);
+    --blue-color: rgb(4, 75, 253);
+    --green-color:rgb(24, 252, 3);
+    --ygreen-color:rgb(169, 252, 3);
+    --white-color:rgb(255, 255, 255);
 
 }
 
 body{
-  background-color:rgb(96, 98, 155);
+  background-color:var(--backg-color);
   font-family: sans-serif;
 }
 
 nav{
-  background-color: rgb(163, 216, 152);
+  background-color: var(--lightgreen-color);
   height: 12vh;
   width: 100%;
 }
@@ -39,12 +46,12 @@ nav{
 
 a {
     text-decoration: none;
-    color: black;
+    color: var(--black-color);
 }
 
 .nav-links a:hover,
 .login a:hover {
-    color: rgb(4, 75, 253);
+    color: var(--blue-color);
 }
 
 .hero {
@@ -70,31 +77,31 @@ a {
 
 h1 {
     font-size: 2.8rem;
-    color: rgb(3, 3, 3);
+    color: var(--black-color);
     margin-bottom: 12px;
 }
 
 .wl {
     font-size: 1.5rem;
-    color: rgb(24, 252, 3);
+    color: var(--green-color);
     margin-bottom: 20px;
 }
  
 .ou{
     font-size: 1.5rem;
-    color: rgb(3, 252, 28);
+    color: var(--green-color);
     margin-bottom: 20px;
 }
 
 .tagline {
     font-size: 1.2rem;
-    color: rgb(169, 252, 3);
+    color: var(--ygreen-color);
     margin-bottom: 10px;
 }
 
 .desc {
     font-size: 1rem;
-    color: rgb(252, 223, 3);
+    color: var(--ygreen-color);
     margin-bottom: 30px;
 }
 
@@ -109,15 +116,15 @@ h1 {
     padding: 15px 30px;
     font-size: 16px;
     font-weight: 600;
-    background-color: #2ec320;
-    color: rgb(255, 255, 255);
+    background-color:var(--green-color);
+    color: var(--white-color);
     border: none;
     border-radius: 6px;
     cursor: pointer;
 }    
    
 .book-btn:hover {
-    background-color: #1ea012ce;
+    background-color: var(--green-color);
     font-weight: 520;
 }
 
@@ -134,7 +141,7 @@ h1 {
 .bar1, .bar2, .bar3 {
   width: 35px;
   height: 5px;
-  background-color: #333;
+  background-color: var(--black-color);
   margin: 6px 0;
   transition: 0.4s;
 }
@@ -178,6 +185,7 @@ h1 {
     }
    .hero {
         flex-direction: column;
+    }
 
     .left, .right {
         width: 100%;
@@ -189,8 +197,8 @@ h1 {
     .tagline { font-size: 1.1rem; }
     .desc { font-size: 1rem; }
     .book-btn { padding: 12px 24px; font-size: 14px; }
-    }
 }
+
 
 @media (max-width: 34rem) {
     .container{
@@ -217,7 +225,7 @@ h1 {
         top: 12vh;
         left: 0;
         width: 100%;
-        background-color: rgb(143, 196, 132);
+        background-color: var(--lightgreen-color);
         padding: 20px;
         gap: 15px;
         text-align: center;
@@ -226,9 +234,9 @@ h1 {
 
     .menu-checkbox:checked ~ .nav-links {
      display: flex;
-     background-color: #f25a5a;
+     background-color: var(--lightgreen-color);
      border-radius: 0 0 10px 10px;
-     border: 5px solid #ccc;
+     border: 5px solid var(--white-color);
      padding: 20px;
      max-height: 300px;
      max-width: fit-content;
