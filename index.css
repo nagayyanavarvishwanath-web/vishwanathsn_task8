@@ -128,42 +128,51 @@ h1 {
     font-weight: 520;
 }
 
-.container {
-  display: inline-block;
-  cursor: pointer;
-  margin-left: auto;
+.menu-button {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 20;
 }
 
-.menu-checkbox {
-  display: none;
-}
-
-.bar1, .bar2, .bar3 {
-  width: 35px;
-  height: 5px;
-  background-color: var(--black-color);
-  margin: 6px 0;
-  transition: 0.4s;
-}
-
-.menu-checkbox:checked ~ .container .bar1 {
-  transform: translate(0, 11px) rotate(-45deg);
-}
-
-
-.menu-checkbox:checked ~ .container .bar2 {
-  opacity: 0;
+.bar1,
+.bar2,
+.bar3 {
+    display: block;
+    width: 35px;
+    height: 5px;
+    background-color: var(--black-color);
+    margin: 6px 0;
+    transition: 0.4s;
 }
 
 
-.menu-checkbox:checked ~ .container .bar3 {
-  transform: translate(0, -11px) rotate(45deg);
+.menu-button:focus .bar1 {
+    transform: translate(0, 11px) rotate(-45deg);
+}
+
+.menu-button:focus .bar2 {
+    opacity: 0;
+}
+
+.menu-button:focus .bar3 {
+    transform: translate(0, -11px) rotate(45deg);
+}
+
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
 }
 
 
 @media (max-width: 160rem) {
-    .container{
-        display : none;
+   .login1 {
+        display: none;
     }
   .logo {
          height: 40px; 
@@ -179,33 +188,47 @@ h1 {
       }
 } 
 
+
 @media (max-width: 48rem) {
-    .container{
-        display : none;
+    .login1 {
+        display: none;
     }
-   .hero {
+
+    .hero {
         flex-direction: column;
     }
 
-    .left, .right {
+    .left,
+    .right {
         width: 100%;
         padding: 20px 0;
     }
 
-    h1 { font-size: 2rem; }
-    .wl, .ou { font-size: 1.3rem; }
-    .tagline { font-size: 1.1rem; }
-    .desc { font-size: 1rem; }
-    .book-btn { padding: 12px 24px; font-size: 14px; }
+    h1 {
+        font-size: 2rem;
+    }
+
+    .wl,
+    .ou {
+        font-size: 1.3rem;
+    }
+
+    .tagline {
+        font-size: 1.1rem;
+    }
+
+    .desc {
+        font-size: 1rem;
+    }
+
+    .book-btn {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
 }
 
 
 @media (max-width: 34rem) {
-    .container{
-        display : inline-block;
-        cursor: pointer;
-        margin-left: auto;
-    }
 
     .nav-container {
         display: flex;
@@ -213,40 +236,55 @@ h1 {
         align-items: center;
     }
 
-    .login {
-        margin-left: auto; 
-        margin-right: 20px;
+    .menu-button {
+        display: block;
+        margin-left: auto;
     }
 
-   .nav-links {
-        display: none;
+    .login1 {
+        margin-left: 15px;
+    }
+
+    .nav-links {
+        display: flex;
         flex-direction: column;
         position: absolute;
         top: 12vh;
-        left: 0;
-        width: 100%;
+        right: 0;
+        left: auto;
+        width: 220px;
         background-color: var(--lightgreen-color);
         padding: 20px;
         gap: 15px;
-        text-align: center;
+        align-items: center;
+        border: 5px solid var(--white-color);
+        border-radius: 0 0 10px 10px;
         z-index: 10;
-    }
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(100%);
 
-    .menu-checkbox:checked ~ .nav-links {
-     display: flex;
-     background-color: var(--lightgreen-color);
-     border-radius: 0 0 10px 10px;
-     border: 5px solid var(--white-color);
-     padding: 20px;
-     max-height: 300px;
-     max-width: fit-content;
-     align-items: center;
-     
+        transition:
+            transform 0.4s ease,
+            opacity 0.4s ease,
+            visibility 0.4s ease;
     }
-
-    h1 { font-size: 1.8rem; }
-    .wl, .ou { font-size: 1.1rem; }
-    .tagline { font-size: 1rem; }
-    .desc { font-size: 0.9rem; }
+    .menu-button:focus ~ .nav-links {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
+    .wl,
+    .ou {
+        font-size: 1.1rem;
+    }
+    .tagline {
+        font-size: 1rem;
+    }
+    .desc {
+        font-size: 0.9rem;
+    }
 }
-
